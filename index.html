@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				perspective: 800px;
+				perspective-origin: 50% 50%;
+				overflow: hidden;
+			}
+			.box{position: relative;
+			    transform-style: preserve-3d;
+			   
+			    background: red;
+				padding: 1px;
+				font-size: 200px;
+				font-weight: bold;
+				line-height: 200px;
+				text-align: center;
+				color: white;
+			    width:200px;
+				height: 200px;
+				margin: 0 auto;
+			}
+			.box div{
+				width:200px;
+				height: 200px;
+				position: absolute;
+			}
+			#d1{transform-origin: bottom;transition: all 1s linear;}
+			#d2,#d3,#d4,#d5,#d6{
+				transform-origin: bottom;transition: all 1s linear;transform: rotateX(90deg);
+			}
+			.a{
+				text-align: center;margin: 20px auto;
+			}
+			
+
+			
+		</style>
+		<script type="text/javascript">
+			var i=1;
+			function q(){
+				if(i==6) return;
+				document.getElementById("d"+i).style.transform="rotateX(-90deg)";
+				i++;
+				document.getElementById("d"+i).style.transform="rotateX(0deg)";
+			}
+				function h(){
+				if(i==1) return;
+				document.getElementById("d"+i).style.transform="rotateX(90deg)";
+				i--;
+				document.getElementById("d"+i).style.transform="rotateX(0deg)";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<div class ="box">
+				<div id="d1">1</div>
+				<div id="d2">2</div>
+				<div id="d3">3</div>
+				<div id="d4">4</div>
+				<div id="d5">5</div>
+				<div id="d6">6</div>
+			</div>
+		</div>
+		<!--按钮-->
+		<div class="a"><a href="javascript:q()">向前</a>&nbsp;&nbsp;&nbsp;<a href="javascript:h()">向后</a></div>
+	</body>
+</html>
